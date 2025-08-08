@@ -15,7 +15,6 @@ public class TrackShapeLoader : MonoBehaviour
         GameObject trackShapeObj = Instantiate(TrackShapePrefab);
         _trackShape = trackShapeObj.GetComponent<SplineContainer>();
     
-        //SplineMesh.Extrude(TrackSpline.Spline, );
     }
 
 }

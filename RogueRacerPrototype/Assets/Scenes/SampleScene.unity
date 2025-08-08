@@ -1137,7 +1137,7 @@ MonoBehaviour:
     - rid: 8844667421213851650
       type: {class: SplineShape, ns: UnityEngine.Splines.ExtrusionShapes, asm: Unity.Splines}
       data:
-        m_Template: {fileID: 0}
+        m_Template: {fileID: 6783474640673721284}
         m_SplineIndex: 0
         m_SideCount: 12
         m_Axis: 1
@@ -2868,6 +2868,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01539353d3225944fa042f07a221cd7c, type: 3}
+--- !u!114 &6783474640673721284 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8653803196313572342, guid: 01539353d3225944fa042f07a221cd7c, type: 3}
+  m_PrefabInstance: {fileID: 6783474640673721283}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
