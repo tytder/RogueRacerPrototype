@@ -6,15 +6,20 @@ using UnityEngine.Splines;
 public class TrackShapeLoader : MonoBehaviour
 {
     [SerializeField] private GameObject TrackShapePrefab;
-    [SerializeField] private SplineExtrude TrackSpline;
 
-    private SplineContainer _trackShape;
     
     private void Awake()
     {
-        GameObject trackShapeObj = Instantiate(TrackShapePrefab);
-        _trackShape = trackShapeObj.GetComponent<SplineContainer>();
-    
+        if (!enabled) return;
+        var generatedTrack = GameObject.FindGameObjectWithTag("GeneratedTrack");
+        var generatedTrackContainer = generatedTrack.GetComponent<SplineContainer>();
+        
+        GameObject trackShapeObj = Instantiate(TrackShapePrefab, generatedTrack.transform.position, Quaternion.identity);
+        var trackShapeExtrude = trackShapeObj.GetComponent<SplineExtrude>();
+        
+        trackShapeExtrude.Container = generatedTrackContainer;
+        trackShapeExtrude.Rebuild();
+        
     }
 
 }

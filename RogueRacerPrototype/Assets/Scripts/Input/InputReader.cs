@@ -7,7 +7,6 @@ public class InputReader : ScriptableObject, PlayerInputActions.IPlayerActions
 {
     public float Move => playerInputActions.Player.Move.ReadValue<float>();
     public float Steer => playerInputActions.Player.Steer.ReadValue<float>();
-    public bool IsBreaking => Move < 0f;
     
     PlayerInputActions playerInputActions;
 
