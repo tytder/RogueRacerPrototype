@@ -3,11 +3,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "InputReader", menuName = "Scriptable Objects/InputReader")]
-public class InputReader : ScriptableObject, PlayerInputActions.IPlayerActions
+public class InputReader : ScriptableObject, PlayerInputActions.IPlayerActions, ICarInput
 {
     public float Move => playerInputActions.Player.Move.ReadValue<float>();
     public float Steer => playerInputActions.Player.Steer.ReadValue<float>();
-    
+    public bool SetCurrentWaypoint(Waypoint currentWaypoint)
+    {
+        // noop
+        return true;
+    }
+
     PlayerInputActions playerInputActions;
 
     void OnEnable()

@@ -5,7 +5,6 @@ using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
-using UnityUtils;
 
 public class SelfGeneratedRoadMesh : MonoBehaviour
 {
@@ -19,6 +18,7 @@ public class SelfGeneratedRoadMesh : MonoBehaviour
     [SerializeField] private RoadObjectData[] _roadObjects;
     [SerializeField] private int _resolutionPerMeter;
     public float RoadWidth;
+    [SerializeField] private int _wallLayer;
 
     [Button("Regenerate mesh")]
     private void Awake()
@@ -57,10 +57,10 @@ public class SelfGeneratedRoadMesh : MonoBehaviour
         List<Vector3> rightVertsLow = rightVerts.Select(p => p - Vector3.up).ToList();
         List<Vector3> rightVertsHigh = rightVerts.Select(p => p + Vector3.up).ToList();
         
-        MeshFilter leftWall = PrepareRoadGameObject(_roadObjects[0]);
+        MeshFilter leftWall = PrepareRoadGameObject(_roadObjects[0], _wallLayer);
         BuildMesh(leftWall, leftVertsLow, leftVertsHigh);
         
-        MeshFilter rightWall = PrepareRoadGameObject(_roadObjects[1]);
+        MeshFilter rightWall = PrepareRoadGameObject(_roadObjects[1], _wallLayer);
         BuildMesh(rightWall, rightVertsHigh, rightVertsLow);
 
         if (_roadObjects.Length >= 3)
@@ -70,7 +70,7 @@ public class SelfGeneratedRoadMesh : MonoBehaviour
         }
     }
 
-    private MeshFilter PrepareRoadGameObject(RoadObjectData roadObjectData)
+    private MeshFilter PrepareRoadGameObject(RoadObjectData roadObjectData, int layer = 0)
     {
         GameObject roadObject =  new GameObject(roadObjectData.Name);
         roadObject.transform.SetParent(transform);
@@ -78,7 +78,7 @@ public class SelfGeneratedRoadMesh : MonoBehaviour
         roadObject.transform.localRotation = Quaternion.identity;
         MeshFilter roadMesh = roadObject.AddComponent<MeshFilter>();
         roadObject.AddComponent<MeshRenderer>().material = roadObjectData.Material;
-        roadObject.layer = transform.gameObject.layer;
+        roadObject.layer = layer == 0 ? transform.gameObject.layer : layer;
         return roadMesh;
     }
 

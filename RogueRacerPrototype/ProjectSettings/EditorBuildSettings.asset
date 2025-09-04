@@ -6,8 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CoTA.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/StartScene.unity
+    guid: 6c91a91c01762e94886d690fc171c803
+  - enabled: 1
+    path: Assets/Scenes/RaceSelect.unity
+    guid: 9950254deb0a6c741b9d16f0a367e2b0
+  - enabled: 1
+    path: Assets/Scenes/CoTA_autoSpline.unity
+    guid: 99b1cb77256ec27498238bf372aa7e39
+  - enabled: 1
+    path: Assets/Scenes/UpgradeSelect.unity
+    guid: 36da36797dc37bc488705033ed597313
+  - enabled: 1
+    path: Assets/Scenes/GameWon.unity
+    guid: 72e2e9284f5a7f64a804f8c0b3831140
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 41e206b1cfffb4049b9d5760151abd91, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

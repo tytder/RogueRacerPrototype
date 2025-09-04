@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Linq;
 using PrimeTween;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -10,14 +12,17 @@ using UnityUtils;
 
 public class CarController : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private InputReader _inputReader;
-    [SerializeField] private Rigidbody _carRb;
+    [FormerlySerializedAs("_playerInput")]
+    [Header("References")] 
+    public InputReader PlayerInput;
+    [FormerlySerializedAs("_carRb")] public Rigidbody CarRb;
     [SerializeField] private Transform[] _suspensionRayPoints;
     [SerializeField] private LayerMask _drivable;
     [SerializeField] private Transform _accelerationPoint;
     [SerializeField] private GameObject[] _tires = new  GameObject[4];
     [SerializeField] private GameObject[] _frontTireParents = new  GameObject[2];
+    
+    [HideInInspector] public ICarInput CarInput;
     
     [Header("Suspension Settings")]
     [Tooltip("Max force spring can exert when fully compressed.")]
@@ -49,27 +54,28 @@ public class CarController : MonoBehaviour
     [SerializeField] private AnimationCurve _turningCurve;
     [SerializeField] private float _dragCoefficient = 1f;
     [SerializeField] private float _wheelCircumference;
+    public float HandlingMultiplier = 1f;
 
     private float _steerInput;
     
     [Header("Acceleration")]
     [Tooltip("x-axis: car's speed as % of top speed,\n y-axis: % of available torque")]
     [SerializeField] public AnimationCurve _engineTorque;
-    [SerializeField] private float _maxSpeedForward = 100f;
+    public float _maxSpeedForward = 100f;
     [SerializeField] private float _maxSpeedBackwards = 30f;
     [SerializeField] private float _acceleration = 25f;
     [SerializeField] private float _acceleration2 = 5f;
     [SerializeField] private float _deceleration = 10f;
     [SerializeField] private float _brakingDeceleration = 100f;
     [SerializeField] private float _brakingDragCoefficient = .5f;
-    
-    private Vector3 _currentCarLocalVelocity;
+
+    [HideInInspector] public Vector3 CurrentCarLocalVelocity;
     private float _carVelocityRatio;
     private float _moveInput;
     
     [Header("Engine Settings")] 
-    [SerializeField] private float _idleRpm = 900f;
-    [SerializeField] private float _maxRpm = 9000f;
+    public float _idleRpm = 900f;
+    public float _maxRpm = 9000f;
     [SerializeField] private float _maxUsableRpm = 8100f;
     [SerializeField] private float _throttleRpmIncreaseRate = 3000f; // rpm per second
     [SerializeField] private float _throttleRpmDecreaseRate = 2500f; // rpm per second
@@ -84,7 +90,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private TMP_Text _currentGearDisplay;
 
     private int _currentGear;
-    private float _engineRpm;
+    public float EngineRpm;
     private float _wheelRpm;
     private float _previousEngineRpm;
     
@@ -99,6 +105,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private TMP_Text _speedometerText;
     [SerializeField] private Vector2 _minMaxSpeedArrowAngle;
     [SerializeField] private RectTransform _speedometerArrow;
+    [SerializeField] private TMP_Text _racePosition;
+    [SerializeField] private TMP_Text _lapCounter;
     
     private bool _isBraking;
 
@@ -106,22 +114,170 @@ public class CarController : MonoBehaviour
     public float DEBUG_EngineTorqueCurve;
     private bool _rpmIsAnimating;
 
+    private int _lapCount;
+    private int _waypointCount;
+    private float _totalWaypointCount;
+    private Waypoint _nextWaypoint;
+    private CarController[] _allCars;
+
+    public int WaypointCount
+    {
+        get => _waypointCount;
+        set
+        {
+            _waypointCount = value;
+            LapCount = (int)(_waypointCount / _totalWaypointCount);
+        }
+    }
+
+    public int RacePosition;
+    public float AbsolutePos => WaypointCount * 1000000 + Vector3.Distance(transform.position, _nextWaypoint.Position);
+
+    private int FindPosition()
+    {
+        /*Array.Sort(_allCars, (a, b) => b.AbsolutePos.CompareTo(a.AbsolutePos));
+
+        int playerIndex = Array.FindIndex(_allCars, car => car.PlayerInput);
+        return playerIndex + 1;*/
+        int position = 1; // start at 1st
+        foreach (var car in _allCars)
+        {
+            if (car && !car.PlayerInput)
+            {
+                if (car.AbsolutePos > AbsolutePos)
+                    position++;
+            }
+        }
+        return position;
+    }
+    
+    private IEnumerator UpdatePositionsRoutine()
+    {
+        while (true)
+        {
+            try
+            {
+                RacePosition = FindPosition();
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e.Message);
+            }
+            yield return new WaitForSeconds(.1f);
+            if (!RaceManager.Instance.IsRaceActive && _lapCount > 0)
+                break;
+        }
+    }  
+
+    public int LapCount
+    {
+        get => _lapCount;
+        set
+        {
+            _lapCount = value;
+            if (!PlayerInput) return;
+            _lapCounter.text = $"Lap {_lapCount + 1} / {RaceManager.Instance.TotalAmountOfLaps}";
+            if (_lapCount == RaceManager.Instance.TotalAmountOfLaps)
+            {
+                RaceManager.Instance.RaceCompleted();
+            }
+        }
+    }
 
     private void Start()
     {
-        _damperStiffness = 2 * _damperZeta * Mathf.Sqrt(_springStiffness * _carRb.mass);
-        _engineRpm = _idleRpm;
-        //_carRb.angularDamping = 10;
+        if (!TryGetComponent(out CarInput))
+        {
+            CarInput = PlayerInput;
+        }
+        _damperStiffness = 2 * _damperZeta * Mathf.Sqrt(_springStiffness * CarRb.mass);
+        EngineRpm = _idleRpm;
+
+        _totalWaypointCount = FindFirstObjectByType<RaceLines>().Waypoints.Length;
+        _allCars = FindObjectsByType<CarController>(FindObjectsSortMode.None);
+        
+        if (PlayerInput)
+        {
+            for (int i = 0; i < _engineTorque.keys.Length; i++)
+            {
+                if (i < _engineTorque.keys.Length * .4f)
+                {
+                    _engineTorque.keys[i].value *= GameSingleton.Instance.PlayerAccelMultiplier;
+                }
+                else
+                {
+                    _engineTorque.keys[i].value *= GameSingleton.Instance.PlayerSpeedMultiplier;
+                }
+            }
+
+            HandlingMultiplier = GameSingleton.Instance.PlayerHandlingMultiplier;
+            
+            _lapCounter.text = $"Lap {_lapCount + 1} / {RaceManager.Instance.TotalAmountOfLaps}";
+            RacePosition = _allCars.Length;
+        }
+        //_carRb
+        //Application.targetFrameRate = 30; // TODO: power saving.
+    }
+
+    public bool SetCurrentWaypoint(Waypoint waypoint)
+    {
+        WaypointCount++;
+        if (PlayerInput)
+        {
+            bool start = !_nextWaypoint;
+            if (start && !IsInvoking(nameof(UpdatePositionsRoutine)))  
+                StartCoroutine(nameof(UpdatePositionsRoutine));
+        }
+        _nextWaypoint = waypoint.NextWaypoint;
+        return CarInput.SetCurrentWaypoint(waypoint);
     }
 
     private void Update()
     {
-        _moveInput = _inputReader.Move;
-        _steerInput = _inputReader.Steer;
+        if (PlayerInput)
+        {
+            UiVisuals();
+        }
+        if (!RaceManager.Instance.IsRaceActive)
+        {
+            return;
+        }
+        _moveInput = CarInput.Move;
+        _steerInput = CarInput.Steer;
     }
 
     private void FixedUpdate()
     {
+        if (!RaceManager.Instance.IsRaceActive)
+        {
+            CarRb.linearVelocity = Vector3.zero;
+            for (int i = 0; i < _suspensionRayPoints.Length; i++)
+            {
+                Transform rayPoint = _suspensionRayPoints[i];
+                float maxLength = _restLengthFront + _springMaxTravel; // (i < 2 ? _restLengthFront : _restLengthBack)
+                if (Physics.Raycast(rayPoint.position, -rayPoint.up, out var hit, 10f, _drivable))
+                {
+                    HandleSuspension(hit, rayPoint);
+                    if (hit.distance < maxLength + _wheelRadiusFront)
+                    {
+                        _wheelsIsGrounded[i] = true;
+                        SetTirePosition(_tires[i], hit.point + rayPoint.up * _wheelRadiusFront);
+                    }
+                    else
+                    {
+                        _wheelsIsGrounded[i] = false;
+                        SetTirePosition(_tires[i], rayPoint.position - rayPoint.up * (maxLength - _wheelRadiusFront));
+                    }
+                }
+                else
+                {
+                    _wheelsIsGrounded[i] = false;
+                
+                    SetTirePosition(_tires[i], rayPoint.position - rayPoint.up * (maxLength - _wheelRadiusFront));
+                }
+            }
+            return;
+        }
         CalculateCarVelocity();
         UpdateEngineRpm();
         if (!_isManual)
@@ -133,16 +289,16 @@ public class CarController : MonoBehaviour
         HandleDeceleration();
         SidewaysDrag();
         Visuals();
-        _previousEngineRpm = _engineRpm;
+        _previousEngineRpm = EngineRpm;
     }
     
     private void CalculateCarVelocity()
     {
-        _currentCarLocalVelocity = transform.InverseTransformDirection(_carRb.linearVelocity);
-        _carVelocityRatio = _currentCarLocalVelocity.z / _maxSpeedForward;
+        CurrentCarLocalVelocity = transform.InverseTransformDirection(CarRb.linearVelocity);
+        _carVelocityRatio = CurrentCarLocalVelocity.z / _maxSpeedForward;
 
-        _isBraking = Mathf.Abs(_moveInput) > 0.05f && Math.Sign(_currentCarLocalVelocity.z) != Math.Sign(_moveInput);
-        _isBrakingDisplay.SetActive(_isBraking);
+        _isBraking = Mathf.Abs(_moveInput) > 0.05f && Math.Sign(CurrentCarLocalVelocity.z) != Math.Sign(_moveInput);
+        _isBrakingDisplay?.SetActive(_isBraking);
     }
 
     
@@ -180,7 +336,7 @@ public class CarController : MonoBehaviour
             ForceMode.Acceleration);*/
         Vector3 forward = transform.forward.With(y: 0).normalized;
 
-        float velocityZ = _currentCarLocalVelocity.z; // m/s in local space
+        float velocityZ = CurrentCarLocalVelocity.z; // m/s in local space
 
         // Base decel (coasting vs braking)
         float decel = (_isBraking) ? _brakingDeceleration : 0/*_deceleration*/;
@@ -189,7 +345,7 @@ public class CarController : MonoBehaviour
         Vector3 brakeForce = -forward * (Mathf.Sign(velocityZ) * decel);
         // when sliding downwards but wanting to go in the opposite direction, dont apply force in slipping direction
 
-        _carRb.AddForceAtPosition(brakeForce, _accelerationPoint.position, ForceMode.Acceleration);
+        CarRb.AddForceAtPosition(brakeForce, _accelerationPoint.position, ForceMode.Acceleration);
 
         // Anti-roll / handbrake assist
         /*if (Mathf.Abs(_engineRpm - _idleRpm) < 50 && Mathf.Abs(velocityZ) < 0.2f)
@@ -214,13 +370,13 @@ public class CarController : MonoBehaviour
 
     private void SidewaysDrag()
     {
-        float currentSidewaysSpeed = _currentCarLocalVelocity.x;
+        float currentSidewaysSpeed = CurrentCarLocalVelocity.x;
 
         float dragMagnitude = -currentSidewaysSpeed * (_isBraking ? _brakingDragCoefficient : _dragCoefficient);
         
         Vector3 dragForce = transform.right * dragMagnitude;
         
-        _carRb.AddForceAtPosition(dragForce, _carRb.worldCenterOfMass, ForceMode.Acceleration);
+        CarRb.AddForceAtPosition(dragForce, CarRb.worldCenterOfMass, ForceMode.Acceleration);
     }
 
     #endregion
@@ -264,7 +420,7 @@ public class CarController : MonoBehaviour
 
         if (Mathf.Abs(_moveInput) > 0.001f)
         {
-            float engineTorque = _torqueCurve.Evaluate(_engineRpm);
+            float engineTorque = _torqueCurve.Evaluate(EngineRpm);
 
             //engineTorque *= Mathf.Clamp01(_moveInput);
             
@@ -281,7 +437,7 @@ public class CarController : MonoBehaviour
             float driveForce = wheelTorque / _wheelRadiusFront;
             
             Vector3 accelDir = rayPoint.forward;
-            _carRb.AddForceAtPosition(accelDir * driveForce, rayPoint.position);
+            CarRb.AddForceAtPosition(accelDir * driveForce, rayPoint.position);
 
             /*float availableTorque = _engineTorque.Evaluate(Mathf.Abs(_carVelocityRatio)) * _moveInput * _acceleration2;
 
@@ -292,14 +448,14 @@ public class CarController : MonoBehaviour
     private void HandleSteeringViaWheels(Transform rayPoint, int index)
     {
         Vector3 steeringDir = rayPoint.right;
-        Vector3 tireWorldVelocity = _carRb.GetPointVelocity(rayPoint.position);
+        Vector3 tireWorldVelocity = CarRb.GetPointVelocity(rayPoint.position);
         float steeringVel = Vector3.Dot(steeringDir, tireWorldVelocity);
 
         float evaluateValue = Mathf.Abs(steeringVel / _maxSpeedForward);
         
-        float tireGrip = Mathf.Clamp01( index < 2
+        float tireGrip = Mathf.Clamp01((index < 2
                 ? _frontTiresGrip.Evaluate(evaluateValue)
-                : _rearTiresGrip.Evaluate(evaluateValue));
+                : _rearTiresGrip.Evaluate(evaluateValue)) * HandlingMultiplier);
         
         DEBUG_GripCurve[index] = evaluateValue;
 
@@ -307,7 +463,7 @@ public class CarController : MonoBehaviour
         
         float desiredAcceleration = desiredVelChange * Time.fixedDeltaTime;
         
-        _carRb.AddForceAtPosition(steeringDir * (_carRb.mass * desiredAcceleration), rayPoint.position);
+        CarRb.AddForceAtPosition(steeringDir * (CarRb.mass * desiredAcceleration), rayPoint.position);
     }
 
     private void HandleSuspension(RaycastHit hit, Transform rayPoint)
@@ -315,14 +471,14 @@ public class CarController : MonoBehaviour
         float currentSpringLength = hit.distance - _wheelRadiusFront; //i < 2 ? _wheelRadiusFront : _wheelRadiusBack
         float springCompression = (_restLengthFront - currentSpringLength) / _springMaxTravel; //(i < 2 ? _restLengthFront : _restLengthBack)
 
-        float springVelocity = Vector3.Dot(_carRb.GetPointVelocity(rayPoint.position), rayPoint.up);
+        float springVelocity = Vector3.Dot(CarRb.GetPointVelocity(rayPoint.position), rayPoint.up);
         float dampForce = _damperStiffness * springVelocity;
         
         float springForce = _springStiffness * springCompression;
 
         float netForce = springForce - dampForce;
         
-        _carRb.AddForceAtPosition(rayPoint.up * netForce, rayPoint.position);
+        CarRb.AddForceAtPosition(rayPoint.up * netForce, rayPoint.position);
     }
 
     #endregion
@@ -332,7 +488,6 @@ public class CarController : MonoBehaviour
     private void Visuals()
     {
         TireVisuals();
-        UiVisuals();
     }
     
     private void SetTirePosition(GameObject tire, Vector3 targetPosition)
@@ -342,7 +497,10 @@ public class CarController : MonoBehaviour
 
     private void UiVisuals()
     {
-        float speed = _currentCarLocalVelocity.z * 3.6f;
+        if (_racePosition)
+            _racePosition.text = "" + RacePosition + " / " + _allCars.Length;
+        
+        float speed = CurrentCarLocalVelocity.z * 3.6f;
 
         if (_speedometerText)
         {
@@ -353,7 +511,7 @@ public class CarController : MonoBehaviour
         {
             _speedometerArrow.localEulerAngles = new Vector3(
                 0, 0,
-                Mathf.Lerp(_minMaxSpeedArrowAngle.x, _minMaxSpeedArrowAngle.y, _engineRpm / _maxRpm)
+                Mathf.Lerp(_minMaxSpeedArrowAngle.x, _minMaxSpeedArrowAngle.y, EngineRpm / _maxRpm)
                 );
         }
 
@@ -384,6 +542,13 @@ public class CarController : MonoBehaviour
                 _braking.fillAmount = 0;
             }
         }
+        
+        _currentGearDisplay.text = _currentGear switch
+        {
+            -1 => "R",
+            0 => "N",
+            _ => _currentGear.ToString("D")
+        };
     }
 
     private void TireVisuals()
@@ -417,17 +582,17 @@ public class CarController : MonoBehaviour
         if (_currentGear == 0) return;
         if (_rpmIsAnimating) return;
         
-        _wheelRpm = (Mathf.Abs(_currentCarLocalVelocity.z) / _wheelCircumference) * 60f;
+        _wheelRpm = (Mathf.Abs(CurrentCarLocalVelocity.z) / _wheelCircumference) * 60f;
         
         int gearToUse = _currentGear > 0 ? _currentGear - 1 : 0;
 
         float targetWheelRpm = _wheelRpm * _gearRatios[gearToUse] * _finalDriveRatio;
 
-        _engineRpm = Mathf.MoveTowards(_engineRpm, targetWheelRpm,
+        EngineRpm = Mathf.MoveTowards(EngineRpm, targetWheelRpm,
             Time.deltaTime * (!_isBraking ? _throttleRpmIncreaseRate : _throttleRpmDecreaseRate) * MathF.Sqrt(_gearRatios[gearToUse]));
         
-        _engineRpm = Mathf.Clamp(_engineRpm, _idleRpm, _maxUsableRpm);
-        DEBUG_EngineTorqueCurve = _engineRpm;
+        EngineRpm = Mathf.Clamp(EngineRpm, _idleRpm, _maxUsableRpm);
+        DEBUG_EngineTorqueCurve = EngineRpm;
     }
 
     private void ShiftUp()
@@ -438,14 +603,8 @@ public class CarController : MonoBehaviour
         
         float ratioChange = _gearRatios[_currentGear + 1 - 1] / _gearRatios[_currentGear - 1]; 
         // -1 on both for converting from 0-based (array indices) to 1-based (_currentGear)
-        _engineRpm *= ratioChange;
+        EngineRpm *= ratioChange;
         _currentGear++;
-        _currentGearDisplay.text = _currentGear switch
-        {
-            -1 => "R",
-            0 => "N",
-            _ => _currentGear.ToString("D")
-        };
     }
     
     private void ShiftDown()
@@ -455,14 +614,8 @@ public class CarController : MonoBehaviour
         
         float ratioChange = _gearRatios[_currentGear - 1 - 1] / _gearRatios[_currentGear - 1];
         // -1 on both for converting from 0-based (array indices) to 1-based (_currentGear)
-        _engineRpm *= ratioChange;
+        EngineRpm *= ratioChange;
         _currentGear--;
-        _currentGearDisplay.text = _currentGear switch
-        {
-            -1 => "R",
-            0 => "N",
-            _ => _currentGear.ToString("D")
-        };
     }
 
     private void CheckAutoShift()
@@ -470,14 +623,14 @@ public class CarController : MonoBehaviour
         if (_rpmIsAnimating) return;
         
         // upshifting
-        if (_engineRpm > _upshiftRpm && _previousEngineRpm < _engineRpm)
+        if (EngineRpm > _upshiftRpm && _previousEngineRpm < EngineRpm)
         {
             ShiftUp();
             return;
         }
 
         // downshifting
-        if (_engineRpm < _downshiftRpm && _previousEngineRpm > _engineRpm)
+        if (EngineRpm < _downshiftRpm && _previousEngineRpm > EngineRpm)
         {
             ShiftDown();
         }
@@ -487,21 +640,21 @@ public class CarController : MonoBehaviour
     {
         if (_rpmIsAnimating) return;
         
-        bool carIsStopped = Mathf.Abs(_currentCarLocalVelocity.z) < 0.5f; // less than 0.5 m/s is stopped.
-        float velZ = _currentCarLocalVelocity.z;
+        bool carIsStopped = Mathf.Abs(CurrentCarLocalVelocity.z) < 0.5f; // less than 0.5 m/s is stopped.
+        float velZ = CurrentCarLocalVelocity.z;
 
         // Neutral to first
         if (_moveInput > 0.1f && _currentGear == 0)
         {
             _currentGear = 1;
-            _engineRpm = _idleRpm;
+            EngineRpm = _idleRpm;
         }
 
         // Neutral to reverse
-        if (_moveInput < -0.1f && _currentGear == 0 && _engineRpm < 50)
+        if (_moveInput < -0.1f && _currentGear == 0 && EngineRpm < 50)
         {
             _currentGear = -1;
-            _engineRpm = _idleRpm;
+            EngineRpm = _idleRpm;
         }
 
         // From reverse to first
@@ -559,49 +712,36 @@ public class CarController : MonoBehaviour
             }
         }*/
         
-        // update gear display
-        _currentGearDisplay.text = _currentGear switch
-        {
-            -1 => "R",
-            0 => "N",
-            _ => _currentGear.ToString("D")
-        };
         
         
     }
 
     private void SetEngineRpmZeroToIdle()
     {
-        Tween.Custom(0f, _idleRpm, (_idleRpm - 0) / _throttleRpmIncreaseRate, newVal => _engineRpm = newVal);
+        Tween.Custom(0f, _idleRpm, (_idleRpm - 0) / _throttleRpmIncreaseRate, newVal => EngineRpm = newVal);
     }
     
     private void SetEngineRpmToZero()
     {
-        float currentRpm = _engineRpm;
-        Tween.Custom(currentRpm, 0, (_idleRpm - 0) / (_throttleRpmDecreaseRate * _gearRatios[0]), newVal => _engineRpm = newVal);
+        float currentRpm = EngineRpm;
+        Tween.Custom(currentRpm, 0, (_idleRpm - 0) / (_throttleRpmDecreaseRate * _gearRatios[0]), newVal => EngineRpm = newVal);
     }
 
     private void SetEngineRpmToZeroToIdle(int gearToSwitchTo)
     {
-        float currentRpm = _engineRpm;
+        float currentRpm = EngineRpm;
 
         _rpmIsAnimating = true;
         
         Sequence.Create()
             .Chain(Tween.Custom(currentRpm, 0, (_idleRpm - 0) / (_throttleRpmDecreaseRate * _gearRatios[0]),
-                newVal => _engineRpm = newVal))
+                newVal => EngineRpm = newVal))
             .Chain(Tween.Custom(0f, _idleRpm, (_idleRpm - 0) / _throttleRpmIncreaseRate, 
-                newVal => _engineRpm = newVal))
+                newVal => EngineRpm = newVal))
             .OnComplete(() =>
             {
                 _rpmIsAnimating = false;
                 _currentGear = gearToSwitchTo;
-                _currentGearDisplay.text = _currentGear switch
-                {
-                    -1 => "R",
-                    0 => "N",
-                    _ => _currentGear.ToString("D")
-                };
             });
     }
 

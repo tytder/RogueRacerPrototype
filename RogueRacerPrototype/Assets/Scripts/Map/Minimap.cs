@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.UI;
 
 public class Minimap : MonoBehaviour
 {
@@ -11,7 +13,9 @@ public class Minimap : MonoBehaviour
 
     private RectTransform _minimapRect;
     private Transform _player;
+    private List<Transform> _aiCars;
     private RectTransform _playerIcon;
+    private List<RectTransform> _aiIcons;
     private List<Vector3> _sampledPoints = new List<Vector3>();
     private List<RectTransform> _pathPoints = new List<RectTransform>();
     private Vector2 _minimapOffset;
@@ -19,11 +23,26 @@ public class Minimap : MonoBehaviour
     void Start()
     {
         var splineContainer = GameObject.FindGameObjectWithTag("GeneratedTrack").GetComponent<SplineContainer>();
-        _playerIcon = Instantiate(playerIconPrefab, transform).GetComponent<RectTransform>();
-        
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        _aiIcons = new List<RectTransform>();
+
+        var cars = FindObjectsByType<CarController>(FindObjectsSortMode.None);
+        _player = cars.FirstOrDefault(car => car.PlayerInput != null)?.transform;
+        if (_player)
+            _playerIcon = Instantiate(playerIconPrefab, transform).GetComponent<RectTransform>();
         _minimapRect = GetComponent<RectTransform>();
+        _aiCars = cars.Select(cc => cc.transform).ToList();
+        if (!_aiCars.Remove(_player) && _player)
+        {
+            Debug.LogError("Player not found in car list");
+        }
+
+        for (int i = 0; i < _aiCars.Count; i++)
+        {
+            var dot = Instantiate(playerIconPrefab, transform).GetComponent<RectTransform>();
+            dot.localScale *= .85f;
+            dot.GetComponent<Image>().color =  Color.black;
+            _aiIcons.Add(dot);
+        }
         
         Vector2 minPos = Vector2.one * float.MaxValue;
         Vector2 maxPos = Vector2.one * float.MinValue;
@@ -50,13 +69,25 @@ public class Minimap : MonoBehaviour
             dotRect.anchoredPosition = WorldToMinimap(worldPos);
             _pathPoints.Add(dotRect);
         }
+
+        foreach (var ai in _aiIcons)
+        {
+            ai.SetAsLastSibling();
+        }
         _playerIcon.SetAsLastSibling();
     }
 
 
     void Update()
     {
-        _playerIcon.anchoredPosition = WorldToMinimap(_player.position);
+        if (_player)
+            _playerIcon.anchoredPosition = WorldToMinimap(_player.position);
+        for (var index = 0; index < _aiIcons.Count; index++)
+        {
+            var aiIcon = _aiIcons[index];
+            var aiCar = _aiCars[index];
+            aiIcon.anchoredPosition = WorldToMinimap(aiCar.position);
+        }
     }
     
     Vector2 WorldToMinimap(Vector3 worldPos)
