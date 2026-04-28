@@ -45,6 +45,8 @@
 	<pref name="UnityEditor.Search.SearchPickerWindowz" type="int">0</pref>
 	<pref name="System.Boolean::Handles.FlowDirectionEnabled" type="int">1</pref>
 	<pref name="Scene/Back-Facing Geometry" type="string">U2NlbmUvQmFjay1GYWNpbmcgR2VvbWV0cnk7MC40OTQxMTc2OzAuMTgwMzkyMjswLjg1MDk4MDQ7MQ==</pref>
+	<pref name="RecentlyUsedScriptApp6" type="string"></pref>
+	<pref name="RecentlyUsedImageApp4" type="string"></pref>
 	<pref name="GradientItemHeight" type="float">14</pref>
 	<pref name="CoreRP:VolumeComponent:UI_State:defaultShadowsMidtonesHighlights" type="int">0</pref>
 	<pref name="Localization/Variant Property(With Override)" type="string">TG9jYWxpemF0aW9uL1ZhcmlhbnQgUHJvcGVydHkoV2l0aCBPdmVycmlkZSk7MDswLjYwMzc3MzY7MDswLjc2MDc4NDM7MDsxOzA7MQ==</pref>
@@ -57,7 +59,7 @@
 	<pref name="VerifySavingAssets" type="int">0</pref>
 	<pref name="SettingsWindow_Project Settings_current_provider" type="string">UHJvamVjdC9QbGF5ZXI=</pref>
 	<pref name="RecentlyUsedProjectPaths-0" type="string">L2hvbWUvbWF0aXMvQmFja3VwL3Jlc3VsdHMvT25lRHJpdmVEdW1wL2JhY2t1cC9Vbml0eSBQcm9qZWN0cy9Qcm9qZWN0IE9E</pref>
-	<pref name="kScriptsDefaultApp" type="string">L3Vzci9iaW4vY29kZQ==</pref>
+	<pref name="kScriptsDefaultApp" type="string">L2hvbWUvbWF0aXMvSmV0YnJhaW5zQXBwcy9yaWRlci9iaW4vcmlkZXI=</pref>
 	<pref name="OpenGameViewOnEnteringPlayMode" type="int">0</pref>
 	<pref name="TMPro.TMP_PackageResourceImporterWindowz" type="int">0</pref>
 	<pref name="Profiler.MemoryProfilerModule.ShowInactiveDSPChains" type="int">0</pref>
@@ -104,7 +106,7 @@
 	<pref name="ProfilerWindow.MainSplitView.FixedPaneSize" type="float">100</pref>
 	<pref name="ProfilerChartCPU" type="int">1</pref>
 	<pref name="ProfilerModule.Unity.Multiplayer.Tools.NetworkProfiler.Editor.NetcodeMessagesProfilerModule, Unity.Multiplayer.Tools.NetworkProfiler.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.Active" type="int">1</pref>
-	<pref name="RecentlyUsedScriptApp0" type="string">L3Vzci9iaW4vY29kZQ==</pref>
+	<pref name="RecentlyUsedScriptApp0" type="string">L2hvbWUvbWF0aXMvSmV0YnJhaW5zQXBwcy9yaWRlci9iaW4vcmlkZXI=</pref>
 	<pref name="Unity.PlayMode.Editor.PlayModeConfigurationsWindowx" type="float">633</pref>
 	<pref name="Scene/Grid Component" type="string">U2NlbmUvR3JpZCBDb21wb25lbnQ7MTsxOzE7MC4x</pref>
 	<pref name="UnityEditor.PropertyEditorh" type="float">1172</pref>
@@ -137,6 +139,7 @@
 	<pref name="Scene/Selected Material Highlight" type="string">U2NlbmUvU2VsZWN0ZWQgTWF0ZXJpYWwgSGlnaGxpZ2h0OzAuNzg0MzEzNzswOzA7MC4zOTIxNTY5</pref>
 	<pref name="PaintHeight.TerrainBrushRandomStrength" type="float">0</pref>
 	<pref name="CPickerHeight" type="int">622</pref>
+	<pref name="RecentlyUsedImageApp9" type="string"></pref>
 	<pref name="UnityEditor.PropertyEditorx" type="float">0</pref>
 	<pref name="UnityEditor.AddComponent.AddComponentWindoww" type="float">230</pref>
 	<pref name="MainView_safe_modew" type="float">1920</pref>
@@ -169,6 +172,7 @@
 	<pref name="UnityEditor.ProjectSettingsWindoww" type="float">1920</pref>
 	<pref name="Terms-43dc734cac67bb5fb31d4692eb48c6b3" type="int">1</pref>
 	<pref name="UnityEditor.PackageImportx" type="float">754</pref>
+	<pref name="RecentlyUsedImageApp2" type="string"></pref>
 	<pref name="Unity.Entities.Editor.HierarchyWindowy" type="float">54</pref>
 	<pref name="UnityEditor.IMGUI.Controls.AdvancedDropdownWindowy" type="float">161</pref>
 	<pref name="ProfilerModule.UnityEditor.AdaptivePerformance.Editor.AdaptivePerformanceProfilerModule, UnityEditor.AdaptivePerformanceModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.OrderIndex" type="int">14</pref>
@@ -190,6 +194,7 @@
 	<pref name="UnityEditor.IconSelectorz" type="int">0</pref>
 	<pref name="PaintHeight.TerrainBrushSizeMin" type="float">0.488043</pref>
 	<pref name="Unity.Entities.Editor.SystemScheduleWindoww" type="float">321</pref>
+	<pref name="RecentlyUsedScriptApp9" type="string"></pref>
 	<pref name="Cloth/Brush Color 2" type="string">Q2xvdGgvQnJ1c2ggQ29sb3IgMjswOzA7MDswLjI=</pref>
 	<pref name="PT_ResourcesCleanup" type="int">0</pref>
 	<pref name="unity.shadergraph.f0bdc9a736594defb498b2a1dc4d7d0a.602ed6e352d14b8087ac295582c81028..isCategoryExpanded" type="int">1</pref>
@@ -201,6 +206,7 @@
 	<pref name="UnityEngine.InputSystem.Editor.InputActionsEditorWindowy" type="float">28</pref>
 	<pref name="UnityEngine.InputSystem.Editor.InputActionsEditorWindowh" type="float">1126</pref>
 	<pref name="UnityEditor.PopupWindowx" type="float">950</pref>
+	<pref name="twoWayDiffArguments" type="string"></pref>
 	<pref name="UnityEditor.PackageManager.UI.Internal.DropdownHandler+DropdownWindowy" type="float">83</pref>
 	<pref name="RotaryHeart.Lib.ProjectPreferences.ProjectPrefsDrawerw" type="float">610</pref>
 	<pref name="RotaryHeart.Lib.ProjectPreferences.SupportWindowy" type="float">54</pref>
@@ -236,12 +242,14 @@
 	<pref name="ProfilerChartVideo" type="int">1</pref>
 	<pref name="UnityEditor.LayerVisibilityWindowy" type="float">138</pref>
 	<pref name="unity.editor_sessionid" type="string">NjExMzQ5NjU4ODc1MjI2NTI3Nw==</pref>
+	<pref name="RecentlyUsedImageApp7" type="string"></pref>
 	<pref name="Profiler.MemoryProfilerModule.Splitter.Relative[1]" type="float">0.3</pref>
 	<pref name="bottlenecks-view-visible" type="int">1</pref>
 	<pref name="BetterHierarchy.containsSingleUserScript" type="int">0</pref>
 	<pref name="UnityEditor.PreferenceSettingsWindowz" type="int">0</pref>
 	<pref name="PackageManager.PageId_812f6d95-2669-495a-81a2-87233fbdae6c" type="string">SW5Qcm9qZWN0</pref>
 	<pref name="CoreRP:VolumeComponent:UI_State:defaultLiftGammaGain" type="int">0</pref>
+	<pref name="threeWayDiffArguments" type="string"></pref>
 	<pref name="UnityEngine.InputSystem.Editor.AdvancedDropdownWindoww" type="float">275</pref>
 	<pref name="UnityEditor.MainVieww" type="float">1920</pref>
 	<pref name="UnityEditor.ProgressWindowz" type="int">0</pref>
@@ -257,6 +265,7 @@
 	<pref name="Unity.PlayMode.Editor.PlayModeConfigurationsWindowz" type="int">0</pref>
 	<pref name="UnityEditor.LayerVisibilityWindowx" type="float">910</pref>
 	<pref name="UnityEditor.AddComponent.AddComponentWindowx" type="float">1656</pref>
+	<pref name="RecentlyUsedScriptApp7" type="string"></pref>
 	<pref name="UnityEditor.EyeDropperw" type="float">100</pref>
 	<pref name="BetterHierarchy.containsUnityScriptsOnly" type="int">1</pref>
 	<pref name="Scene/RectTransform Wire" type="string">U2NlbmUvUmVjdFRyYW5zZm9ybSBXaXJlOzE7MTsxOzE=</pref>
@@ -283,10 +292,12 @@
 	<pref name="Profiler.RememberLastRecordState" type="int">0</pref>
 	<pref name="RestoredMainWindowSizeH" type="float">1025</pref>
 	<pref name="System.Boolean::settings.showUnregistered" type="int">0</pref>
+	<pref name="GICacheFolder" type="string"></pref>
 	<pref name="Unity.Entities.Editor.SystemScheduleWindowz" type="int">0</pref>
 	<pref name="UnityEditor.Build.Profile.BuildProfileWindowy" type="float">28</pref>
 	<pref name="kProjectBasePath" type="string">L2hvbWUvbWF0aXMvRG9jdW1lbnRzL1VuaXR5IFByb2plY3RzL2dob3N0LWNhci11bml0eS1naXRodWI=</pref>
 	<pref name="PaintHeight.TerrainBrushSpacing" type="float">0</pref>
+	<pref name="RecentlyUsedImageApp3" type="string"></pref>
 	<pref name="Cloth/Self or Inter Collision Particle Color 2" type="string">Q2xvdGgvU2VsZiBvciBJbnRlciBDb2xsaXNpb24gUGFydGljbGUgQ29sb3IgMjswLjU2ODYyNzU7MC45NTY4NjI3OzAuNTQ1MDk4MTswLjU=</pref>
 	<pref name="PackageManager.PageId_dde85559-14dc-fefb-a62e-e7697c3a121b" type="string">SW5Qcm9qZWN0</pref>
 	<pref name="SettingsWindow_m_SplitterPos" type="float">293</pref>
@@ -297,6 +308,7 @@
 	<pref name="RotaryHeart.Lib.ProjectPreferences.SupportWindowh" type="float">350</pref>
 	<pref name="UnityEditor.GradientPickerw" type="float">360</pref>
 	<pref name="UnityEditor.GameViewx" type="float">207</pref>
+	<pref name="RecentlyUsedImageApp1" type="string"></pref>
 	<pref name="unity_project_generation_flag" type="int">59</pref>
 	<pref name="RestoredMainWindowSizeY" type="float">28</pref>
 	<pref name="Adaptive Probe Volumes/Level 4 Subdivision" type="string">QWRhcHRpdmUgUHJvYmUgVm9sdW1lcy9MZXZlbCA0IFN1YmRpdmlzaW9uOzE7MC4yNzg0MzE0OzAuMzgwMzkyMjsx</pref>
@@ -309,7 +321,7 @@
 	<pref name="ProfilerModule.Unity.Entities.Editor.MemoryProfilerModule, Unity.Entities.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.OrderIndex" type="int">16</pref>
 	<pref name="UnityEditor.PaneDragTaby" type="float">91</pref>
 	<pref name="UnityEditor.TooltipViewy" type="float">652</pref>
-	<pref name="RecentlyUsedScriptApp2" type="string">L2hvbWUvbWF0aXMvSmV0YnJhaW5zQXBwcy9yaWRlci9iaW4vcmlkZXI=</pref>
+	<pref name="RecentlyUsedScriptApp2" type="string">L2Jpbi9jb2Rl</pref>
 	<pref name="Profiler.MemoryProfilerModule.DSPGraphHorizontalLayout" type="int">0</pref>
 	<pref name="TerrainSelectedDetail" type="int">0</pref>
 	<pref name="UnityEditor.PaneDragTabw" type="float">1920</pref>
@@ -347,6 +359,8 @@
 	<pref name="TMPro.TMP_PackageResourceImporterWindowx" type="float">1280</pref>
 	<pref name="TerrainActiveToolCategory" type="int">1</pref>
 	<pref name="UnityEditor.PackageImporth" type="float">825</pref>
+	<pref name="RecentlyUsedImageApp8" type="string"></pref>
+	<pref name="RecentlyUsedImageApp0" type="string"></pref>
 	<pref name="UnityEditor.Rendering.HighDefinition.HDWizardz" type="int">0</pref>
 	<pref name="Scene/Z Axis" type="string">U2NlbmUvWiBBeGlzOzAuMjI3NDUxOzAuNDc4NDMxNDswLjk3MjU0OTswLjkz</pref>
 	<pref name="RecentlyUsedScriptApp3" type="string">L2hvbWUvbWF0aXMvVW5pdHkvSHViL0VkaXRvci82MDAwLjIuMTNmMS9FZGl0b3IvVW5pdHk=</pref>
@@ -355,6 +369,7 @@
 	<pref name="RotaryHeart.Lib.ProjectPreferences.ProjectPrefsDrawery" type="float">53</pref>
 	<pref name="UnityEngine.InputSystem.Editor.AdvancedDropdownWindowh" type="float">300</pref>
 	<pref name="BetterHierarchy.showAlwaysFirstScriptIcon" type="int">0</pref>
+	<pref name="RecentlyUsedScriptApp4" type="string"></pref>
 	<pref name="PaintHeight.TerrainBrushRotJitter" type="float">0</pref>
 	<pref name="UnityEditor.Rendering.Universal.URPDefaultVolumeProfileSettingsPropertyDrawer.DefaultVolumeProfileFoldoutExpanded" type="int">1</pref>
 	<pref name="System.Boolean::Handles.ShowKnotIndices" type="int">0</pref>
@@ -369,6 +384,7 @@
 	<pref name="UnityEditor.PackageManager.UI.Internal.DropdownHandler+DropdownWindowh" type="float">56</pref>
 	<pref name="Overlays Background/SceneView" type="string">T3ZlcmxheXMgQmFja2dyb3VuZC9TY2VuZVZpZXc7MDswOzA7MC44</pref>
 	<pref name="ProfilerChartUI" type="int">1</pref>
+	<pref name="customDiffToolPath" type="string"></pref>
 	<pref name="UnityEditor.ObjectSelectorz" type="int">0</pref>
 	<pref name="System.Boolean::Handles.ShowAllTangents" type="int">1</pref>
 	<pref name="RotaryHeart.Lib.ProjectPreferences.ProjectPrefsDrawerh" type="float">578</pref>
@@ -404,8 +420,10 @@
 	<pref name="CoreRP:VolumeComponent:UI_State:Tonemapping" type="int">1</pref>
 	<pref name="PaintHeight.TerrainBrushScatter" type="float">0</pref>
 	<pref name="PaintHeight.TerrainBrushSizeMouseSensitivity" type="float">1</pref>
+	<pref name="RecentlyUsedScriptApp8" type="string"></pref>
 	<pref name="UnityEditor.GradientPickerx" type="float">1560</pref>
 	<pref name="UnityEditor.PreferenceSettingsWindoww" type="float">949</pref>
+	<pref name="RecentlyUsedImageApp5" type="string"></pref>
 	<pref name="Animation/Property Candidate" type="string">QW5pbWF0aW9uL1Byb3BlcnR5IENhbmRpZGF0ZTsxOzAuNzswLjY7MTsxOzAuNjc7MC40Mzsx</pref>
 	<pref name="AudioMixerUseRMSMetering" type="int">1</pref>
 	<pref name="CoreRP:VolumeComponent:UI_State:defaultProbeVolumesOptions" type="int">0</pref>
@@ -415,6 +433,8 @@
 	<pref name="System.Boolean::Handles.Debug.ShowMesh" type="int">0</pref>
 	<pref name="RectTransformEditor.showAnchorProperties" type="int">1</pref>
 	<pref name="UnityEditor.GradientPickerh" type="float">550</pref>
+	<pref name="RecentlyUsedImageApp6" type="string"></pref>
+	<pref name="GpuDeviceName" type="string"></pref>
 	<pref name="UnityEditor.PropertyEditorw" type="float">1920</pref>
 	<pref name="CoreRP:VolumeComponent:UI_State:defaultColorAdjustments" type="int">0</pref>
 	<pref name="URP:Camera:Expandable:UI_State" type="int">225</pref>
@@ -453,7 +473,7 @@
 	<pref name="MainView_safe_modex" type="float">0</pref>
 	<pref name="Unity.Multiplayer.PlayMode.Editor.LaunchingScenarioWindowy" type="float">328</pref>
 	<pref name="PaintHeight.TerrainBrushRotation" type="float">0</pref>
-	<pref name="RecentlyUsedScriptApp1" type="string">L2Jpbi9jb2Rl</pref>
+	<pref name="RecentlyUsedScriptApp1" type="string">L3Vzci9iaW4vY29kZQ==</pref>
 	<pref name="ColorViewMode" type="int">0</pref>
 	<pref name="HDRP:SceneViewCamera:Antialiasing" type="int">0</pref>
 	<pref name="UnityEngine.InputSystem.Editor.AdvancedDropdownWindowz" type="int">0</pref>
@@ -479,6 +499,7 @@
 	<pref name="Scene/Center Axis" type="string">U2NlbmUvQ2VudGVyIEF4aXM7MC44OzAuODswLjg7MC45Mw==</pref>
 	<pref name="Sirenix.OdinValidator.Editor.OdinValidatorWindoww" type="float">321</pref>
 	<pref name="UnityEditor.PopupWindowWithoutFocusy" type="float">302</pref>
+	<pref name="kImagesDefaultApp" type="string"></pref>
 	<pref name="ProfilerChartPhysics2D" type="int">1</pref>
 	<pref name="Animation/Property Recorded" type="string">QW5pbWF0aW9uL1Byb3BlcnR5IFJlY29yZGVkOzE7MC42OzAuNjsxOzE7MC41OzAuNTsx</pref>
 	<pref name="TextureImporterShowAdvanced" type="int">1</pref>
@@ -487,6 +508,7 @@
 	<pref name="unity.shadergraph.f0bdc9a736594defb498b2a1dc4d7d0a.45ba3258e56f4bbfa83628fce24de81b..isCategoryExpanded" type="int">1</pref>
 	<pref name="UnityEngine.TerrainCollider.ShowLayerOverridesFoldout" type="int">1</pref>
 	<pref name="LastUsedProjectPath" type="string">L2hvbWUvbWF0aXMvRG9jdW1lbnRzL1VuaXR5IFByb2plY3RzL2dob3N0LWNhci11bml0eS1naXRodWI=</pref>
+	<pref name="mergeArguments" type="string"></pref>
 	<pref name="UnityEditor.SceneHierarchyWindowh" type="float">578</pref>
 	<pref name="ProfilerModule.UnityEditor.AddressableAssets.Diagnostics.AddressablesProfilerModule, Unity.Addressables.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.OrderIndex" type="int">14</pref>
 	<pref name="UnityEditor.PaneDragTabz" type="int">0</pref>
@@ -506,6 +528,7 @@
 	<pref name="NewScriptDropdownItem.m_Directory" type="string">L1NjcmlwdHM=</pref>
 	<pref name="Scene/Receive + Contribute GI (Light Probes)" type="string">U2NlbmUvUmVjZWl2ZSArIENvbnRyaWJ1dGUgR0kgKExpZ2h0IFByb2Jlcyk7MC4xMzcyNTQ5OzAuMDU4ODIzNTM7MC42OzE=</pref>
 	<pref name="UnityEngine.Color::Handles.DirectManipulation.PlaneColor" type="string">eyJtX1ZhbHVlIjp7InIiOjEuMCwiZyI6MS4wLCJiIjoxLjAsImEiOjAuMDE5NjA3ODQzODMxMTgxNTI3fX0=</pref>
+	<pref name="RecentlyUsedScriptApp5" type="string"></pref>
 	<pref name="Cloth/Selected Self or Inter Collision Particle Color 2" type="string">Q2xvdGgvU2VsZWN0ZWQgU2VsZiBvciBJbnRlciBDb2xsaXNpb24gUGFydGljbGUgQ29sb3IgMjswLjI1MDk4MDQ7MC42Mjc0NTE7MTswLjU=</pref>
 	<pref name="UnityEditor.PackageManager.UI.Internal.DropdownHandler+DropdownWindowz" type="int">0</pref>
 	<pref name="BetterHierarchy.isEnabledBetterHierarchy" type="int">1</pref>
