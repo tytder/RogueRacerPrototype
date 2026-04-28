@@ -59,7 +59,7 @@
 	<pref name="VerifySavingAssets" type="int">0</pref>
 	<pref name="SettingsWindow_Project Settings_current_provider" type="string">UHJvamVjdC9QbGF5ZXI=</pref>
 	<pref name="RecentlyUsedProjectPaths-0" type="string">L2hvbWUvbWF0aXMvQmFja3VwL3Jlc3VsdHMvT25lRHJpdmVEdW1wL2JhY2t1cC9Vbml0eSBQcm9qZWN0cy9Qcm9qZWN0IE9E</pref>
-	<pref name="kScriptsDefaultApp" type="string">L2hvbWUvbWF0aXMvSmV0YnJhaW5zQXBwcy9yaWRlci9iaW4vcmlkZXI=</pref>
+	<pref name="kScriptsDefaultApp" type="string">L3Vzci9iaW4vY29kZQ==</pref>
 	<pref name="OpenGameViewOnEnteringPlayMode" type="int">0</pref>
 	<pref name="TMPro.TMP_PackageResourceImporterWindowz" type="int">0</pref>
 	<pref name="Profiler.MemoryProfilerModule.ShowInactiveDSPChains" type="int">0</pref>
@@ -106,7 +106,7 @@
 	<pref name="ProfilerWindow.MainSplitView.FixedPaneSize" type="float">100</pref>
 	<pref name="ProfilerChartCPU" type="int">1</pref>
 	<pref name="ProfilerModule.Unity.Multiplayer.Tools.NetworkProfiler.Editor.NetcodeMessagesProfilerModule, Unity.Multiplayer.Tools.NetworkProfiler.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.Active" type="int">1</pref>
-	<pref name="RecentlyUsedScriptApp0" type="string">L2hvbWUvbWF0aXMvSmV0YnJhaW5zQXBwcy9yaWRlci9iaW4vcmlkZXI=</pref>
+	<pref name="RecentlyUsedScriptApp0" type="string">L3Vzci9iaW4vY29kZQ==</pref>
 	<pref name="Unity.PlayMode.Editor.PlayModeConfigurationsWindowx" type="float">633</pref>
 	<pref name="Scene/Grid Component" type="string">U2NlbmUvR3JpZCBDb21wb25lbnQ7MTsxOzE7MC4x</pref>
 	<pref name="UnityEditor.PropertyEditorh" type="float">1172</pref>
@@ -225,7 +225,7 @@
 	<pref name="TerrainDetailStrength" type="float">0.8</pref>
 	<pref name="CoreRP:VolumeComponent:UI_State:defaultFilmGrain" type="int">0</pref>
 	<pref name="CoreRP:VolumeComponent:UI_State:defaultPaniniProjection" type="int">0</pref>
-	<pref name="unity.editor_session_count" type="string">MTA3</pref>
+	<pref name="unity.editor_session_count" type="string">MTA4</pref>
 	<pref name="ProfilerModule.Unity.Entities.Editor.StructuralChangesProfilerModule, Unity.Entities.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.OrderIndex" type="int">17</pref>
 	<pref name="PaintHeight.TerrainBrushStrengthMouseSensitivity" type="float">1</pref>
 	<pref name="ProjectBrowserPackages" type="int">1</pref>
@@ -241,7 +241,7 @@
 	<pref name="Scene/Element Selection" type="string">U2NlbmUvRWxlbWVudCBTZWxlY3Rpb247MTswLjcxMzcyNTU7MC4xNTY4NjI4OzE=</pref>
 	<pref name="ProfilerChartVideo" type="int">1</pref>
 	<pref name="UnityEditor.LayerVisibilityWindowy" type="float">138</pref>
-	<pref name="unity.editor_sessionid" type="string">NjExMzQ5NjU4ODc1MjI2NTI3Nw==</pref>
+	<pref name="unity.editor_sessionid" type="string">NjU5NzUxNTQ3MzcxMTY4NjA2Mg==</pref>
 	<pref name="RecentlyUsedImageApp7" type="string"></pref>
 	<pref name="Profiler.MemoryProfilerModule.Splitter.Relative[1]" type="float">0.3</pref>
 	<pref name="bottlenecks-view-visible" type="int">1</pref>
@@ -260,7 +260,7 @@
 	<pref name="TerrainFillAddressMode" type="int">0</pref>
 	<pref name="UnityEditor.EyeDropperz" type="int">0</pref>
 	<pref name="ProfilerModule.UnityEditor.AdaptivePerformance.Editor.AdaptivePerformanceProfilerModule, UnityEditor.AdaptivePerformanceModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.Active" type="int">1</pref>
-	<pref name="UnityConnectUrlConfiguration" type="string">eyJ2YWx1ZSI6IntcImNvcmVcIjpcImh0dHBzOi8vY29yZS5jbG91ZC51bml0eTNkLmNvbVwiLFwid2ViYXV0aFwiOlwiaHR0cHM6Ly9hY2NvdW50cy51bml0eTNkLmNvbVwiLFwiaWRlbnRpdHlcIjpcImh0dHBzOi8vYXBpLnVuaXR5LmNvbVwiLFwibGljZW5zZVwiOlwiaHR0cHM6Ly9saWNlbnNlLnVuaXR5M2QuY29tXCIsXCJhY3RpdmF0aW9uXCI6XCJodHRwczovL2FjdGl2YXRpb24udW5pdHkzZC5jb21cIixcInBlcmZcIjpcImh0dHBzOi8vcGVyZi5jbG91ZC51bml0eTNkLmNvbVwiLFwicG9ydGFsXCI6XCJodHRwczovL2lkLnVuaXR5LmNvbVwiLFwiaHViX2luc3RhbGxlcl9sb2NhdGlvblwiOlwiaHR0cHM6Ly9wdWJsaWMtY2RuLmNsb3VkLnVuaXR5M2QuY29tL2h1Yi9wcm9kL1wiLFwiYWN0aXZpdHktZmVlZFwiOmZhbHNlLFwiYW5hbHl0aWNzXCI6XCJodHRwczovL2FuYWx5dGljcy5jbG91ZC51bml0eTNkLmNvbVwiLFwiY2RwLWFuYWx5dGljc1wiOlwiaHR0cHM6Ly9wcmQtbGVuZGVyLmNkcC5pbnRlcm5hbC51bml0eTNkLmNvbVwiLFwiYW5hbHl0aWNzT3B0T3V0XCI6XCJodHRwczovL2NvbmZpZy51Y2EuY2xvdWQudW5pdHkzZC5jb20vXCIsXCJsaXZlUGxhdGZvcm1cIjpcImh0dHBzOi8vbGl2ZS1wbGF0Zm9ybS1hcGkucHJkLmxkLnVuaXR5M2QuY29tL2dyYXBocWxcIixcInNlcnZpY2VzR2F0ZXdheVwiOlwiaHR0cHM6Ly9zZXJ2aWNlcy51bml0eS5jb21cIixcInByb2ZpbGVEYXNoYm9hcmRcIjpcImh0dHBzOi8vY2xvdWQudW5pdHkuY29tXCIsXCJsb2dpblwiOlwiaHR0cHM6Ly9sb2dpbi51bml0eS5jb21cIixcImFkc1wiOlwiaHR0cHM6Ly91bml0eWFkcy51bml0eTNkLmNvbS9hZG1pblwiLFwiYXNzZXRfc3RvcmVfYXBpXCI6XCJodHRwczovL3BhY2thZ2VzLXYyLnVuaXR5LmNvbVwiLFwiYXNzZXRfc3RvcmVfdXJsXCI6XCJodHRwczovL2Fzc2V0c3RvcmUudW5pdHkuY29tXCIsXCJidWlsZFwiOlwiaHR0cHM6Ly9kZXZlbG9wZXIuY2xvdWQudW5pdHkzZC5jb21cIixcImJ1aWxkLWFwaVwiOlwiaHR0cHM6Ly9idWlsZC1hcGkuY2xvdWQudW5pdHkzZC5jb21cIixcImJ1aWxkX3VwbG9hZF9hcGlfdXJsXCI6XCJodHRwczovL2J1aWxkLWFydGlmYWN0LWFwaS5jbG91ZC51bml0eTNkLmNvbVwiLFwiY2xvdWRkYXRhXCI6XCJodHRwczovL2RhdGEuY2xvdWQudW5pdHkzZC5jb21cIixcImNvbGxhYlwiOlwiaHR0cHM6Ly9jb2xsYWIuY2xvdWQudW5pdHkzZC5jb21cIixcImNvbGxhYi1hY2NlbGVyYXRvclwiOlwiaHR0cHM6Ly9jb2xsYWItYWNjZWxlcmF0b3IuY2xvdWQudW5pdHkzZC5jb21cIixcImNvbGxhYi1tYXgtZmlsZXMtcGVyLWNvbW1pdFwiOjEwMDAwLFwiY29tbWVudGluZ1wiOlwiaHR0cHM6Ly9jb21tZW50aW5nLmNsb3VkLnVuaXR5M2QuY29tXCIsXCJjb3JlZW1iZWRkZWRcIjpcImh0dHBzOi8vZW1iZWRkZWQuY2xvdWQudW5pdHkzZC5jb21cIixcImNvcmV1aVwiOlwiaHR0cHM6Ly9kZXZlbG9wZXIuY2xvdWQudW5pdHkzZC5jb21cIixcImdlbmVzaXNfYXBpX3VybFwiOlwiaHR0cHM6Ly9hcGkudW5pdHkuY29tXCIsXCJnZW5lc2lzX3NlcnZpY2VfdXJsXCI6XCJodHRwczovL2lkLnVuaXR5LmNvbVwiLFwiaHViLWRpc2FibGUtbWFya2V0aW5nLXRpcHNcIjpmYWxzZSxcImp1bXBcIjpcImh0dHBzOi8vanVtcC5jbG91ZC51bml0eTNkLmNvbVwiLFwicGFja21hbl9rZXlcIjpcIjYzNTdDNTIzODg2RTgxM0QxNTAwNDA4RjA1QjBEN0E2XCIsXCJwZXJmLWV2ZW50c1wiOlwiaHR0cHM6Ly9hOmJAcGVyZi1ldmVudHMuY2xvdWQudW5pdHkzZC5jb21cIixcInBlcmYtbWF4LWJhdGNoLXNpemVcIjpcIjFcIixcInBlcmYtbWF4LWV2ZW50c1wiOlwiMTAwXCIsXCJwZXJmLXNlY29uZHMtcGVyLWJhdGNoXCI6XCIzXCIsXCJwdWJudWJfc2VydmljZV9vcmlnaW5cIjpcInVuaXR5LnB1Ym51YmFwaS5jb21cIixcInNlYXRfcmVxdWlyZWRcIjp0cnVlLFwic2VhdGluZm91cmxcIjpcIi90ZWFtcy9sZWFybi1tb3JlXCIsXCJzb2NpYWxkYXNoYm9hcmRcIjpcImh0dHBzOi8vZGFzaGJvYXJkLmhleXBsYXlhcHAuY29tXCIsXCJzc29cIjp0cnVlLFwidW5hdXRoZW50aWNhdGVkdXJsXCI6XCIvbGFuZGluZ1wiLFwidW5ldFwiOlwiaHR0cHM6Ly9tdWx0aXBsYXllci51bml0eTNkLmNvbVwiLFwid2FpdGxpc3RcIjpcImh0dHBzOi8vZGV2ZWxvcGVyLmNsb3VkLnVuaXR5M2QuY29tXCIsXCJ3YWl0bGlzdF9hcGlcIjpcImh0dHBzOi8vY29sbGFiLXdhaXRpbmctbGlzdC5jbG91ZC51bml0eTNkLmNvbVwiLFwic2VydmljZXMtZ2F0ZXdheVwiOlwiaHR0cHM6Ly9zZXJ2aWNlcy51bml0eS5jb21cIn0iLCJjcmVhdGlvbiI6MTc3NzQwMzMxNCwiZXhwaXJlcyI6MTgwODkzOTMxNH0=</pref>
+	<pref name="UnityConnectUrlConfiguration" type="string">eyJ2YWx1ZSI6IntcImNvcmVcIjpcImh0dHBzOi8vY29yZS5jbG91ZC51bml0eTNkLmNvbVwiLFwid2ViYXV0aFwiOlwiaHR0cHM6Ly9hY2NvdW50cy51bml0eTNkLmNvbVwiLFwiaWRlbnRpdHlcIjpcImh0dHBzOi8vYXBpLnVuaXR5LmNvbVwiLFwibGljZW5zZVwiOlwiaHR0cHM6Ly9saWNlbnNlLnVuaXR5M2QuY29tXCIsXCJhY3RpdmF0aW9uXCI6XCJodHRwczovL2FjdGl2YXRpb24udW5pdHkzZC5jb21cIixcInBlcmZcIjpcImh0dHBzOi8vcGVyZi5jbG91ZC51bml0eTNkLmNvbVwiLFwicG9ydGFsXCI6XCJodHRwczovL2lkLnVuaXR5LmNvbVwiLFwiaHViX2luc3RhbGxlcl9sb2NhdGlvblwiOlwiaHR0cHM6Ly9wdWJsaWMtY2RuLmNsb3VkLnVuaXR5M2QuY29tL2h1Yi9wcm9kL1wiLFwiYWN0aXZpdHktZmVlZFwiOmZhbHNlLFwiYW5hbHl0aWNzXCI6XCJodHRwczovL2FuYWx5dGljcy5jbG91ZC51bml0eTNkLmNvbVwiLFwiY2RwLWFuYWx5dGljc1wiOlwiaHR0cHM6Ly9wcmQtbGVuZGVyLmNkcC5pbnRlcm5hbC51bml0eTNkLmNvbVwiLFwiYW5hbHl0aWNzT3B0T3V0XCI6XCJodHRwczovL2NvbmZpZy51Y2EuY2xvdWQudW5pdHkzZC5jb20vXCIsXCJsaXZlUGxhdGZvcm1cIjpcImh0dHBzOi8vbGl2ZS1wbGF0Zm9ybS1hcGkucHJkLmxkLnVuaXR5M2QuY29tL2dyYXBocWxcIixcInNlcnZpY2VzR2F0ZXdheVwiOlwiaHR0cHM6Ly9zZXJ2aWNlcy51bml0eS5jb21cIixcInByb2ZpbGVEYXNoYm9hcmRcIjpcImh0dHBzOi8vY2xvdWQudW5pdHkuY29tXCIsXCJsb2dpblwiOlwiaHR0cHM6Ly9sb2dpbi51bml0eS5jb21cIixcImFkc1wiOlwiaHR0cHM6Ly91bml0eWFkcy51bml0eTNkLmNvbS9hZG1pblwiLFwiYXNzZXRfc3RvcmVfYXBpXCI6XCJodHRwczovL3BhY2thZ2VzLXYyLnVuaXR5LmNvbVwiLFwiYXNzZXRfc3RvcmVfdXJsXCI6XCJodHRwczovL2Fzc2V0c3RvcmUudW5pdHkuY29tXCIsXCJidWlsZFwiOlwiaHR0cHM6Ly9kZXZlbG9wZXIuY2xvdWQudW5pdHkzZC5jb21cIixcImJ1aWxkLWFwaVwiOlwiaHR0cHM6Ly9idWlsZC1hcGkuY2xvdWQudW5pdHkzZC5jb21cIixcImJ1aWxkX3VwbG9hZF9hcGlfdXJsXCI6XCJodHRwczovL2J1aWxkLWFydGlmYWN0LWFwaS5jbG91ZC51bml0eTNkLmNvbVwiLFwiY2xvdWRkYXRhXCI6XCJodHRwczovL2RhdGEuY2xvdWQudW5pdHkzZC5jb21cIixcImNvbGxhYlwiOlwiaHR0cHM6Ly9jb2xsYWIuY2xvdWQudW5pdHkzZC5jb21cIixcImNvbGxhYi1hY2NlbGVyYXRvclwiOlwiaHR0cHM6Ly9jb2xsYWItYWNjZWxlcmF0b3IuY2xvdWQudW5pdHkzZC5jb21cIixcImNvbGxhYi1tYXgtZmlsZXMtcGVyLWNvbW1pdFwiOjEwMDAwLFwiY29tbWVudGluZ1wiOlwiaHR0cHM6Ly9jb21tZW50aW5nLmNsb3VkLnVuaXR5M2QuY29tXCIsXCJjb3JlZW1iZWRkZWRcIjpcImh0dHBzOi8vZW1iZWRkZWQuY2xvdWQudW5pdHkzZC5jb21cIixcImNvcmV1aVwiOlwiaHR0cHM6Ly9kZXZlbG9wZXIuY2xvdWQudW5pdHkzZC5jb21cIixcImdlbmVzaXNfYXBpX3VybFwiOlwiaHR0cHM6Ly9hcGkudW5pdHkuY29tXCIsXCJnZW5lc2lzX3NlcnZpY2VfdXJsXCI6XCJodHRwczovL2lkLnVuaXR5LmNvbVwiLFwiaHViLWRpc2FibGUtbWFya2V0aW5nLXRpcHNcIjpmYWxzZSxcImp1bXBcIjpcImh0dHBzOi8vanVtcC5jbG91ZC51bml0eTNkLmNvbVwiLFwicGFja21hbl9rZXlcIjpcIjYzNTdDNTIzODg2RTgxM0QxNTAwNDA4RjA1QjBEN0E2XCIsXCJwZXJmLWV2ZW50c1wiOlwiaHR0cHM6Ly9hOmJAcGVyZi1ldmVudHMuY2xvdWQudW5pdHkzZC5jb21cIixcInBlcmYtbWF4LWJhdGNoLXNpemVcIjpcIjFcIixcInBlcmYtbWF4LWV2ZW50c1wiOlwiMTAwXCIsXCJwZXJmLXNlY29uZHMtcGVyLWJhdGNoXCI6XCIzXCIsXCJwdWJudWJfc2VydmljZV9vcmlnaW5cIjpcInVuaXR5LnB1Ym51YmFwaS5jb21cIixcInNlYXRfcmVxdWlyZWRcIjp0cnVlLFwic2VhdGluZm91cmxcIjpcIi90ZWFtcy9sZWFybi1tb3JlXCIsXCJzb2NpYWxkYXNoYm9hcmRcIjpcImh0dHBzOi8vZGFzaGJvYXJkLmhleXBsYXlhcHAuY29tXCIsXCJzc29cIjp0cnVlLFwidW5hdXRoZW50aWNhdGVkdXJsXCI6XCIvbGFuZGluZ1wiLFwidW5ldFwiOlwiaHR0cHM6Ly9tdWx0aXBsYXllci51bml0eTNkLmNvbVwiLFwid2FpdGxpc3RcIjpcImh0dHBzOi8vZGV2ZWxvcGVyLmNsb3VkLnVuaXR5M2QuY29tXCIsXCJ3YWl0bGlzdF9hcGlcIjpcImh0dHBzOi8vY29sbGFiLXdhaXRpbmctbGlzdC5jbG91ZC51bml0eTNkLmNvbVwiLFwic2VydmljZXMtZ2F0ZXdheVwiOlwiaHR0cHM6Ly9zZXJ2aWNlcy51bml0eS5jb21cIn0iLCJjcmVhdGlvbiI6MTc3NzQwMzYyNiwiZXhwaXJlcyI6MTgwODkzOTYyNn0=</pref>
 	<pref name="UnityEngine.InputSystem.Editor.AdvancedDropdownWindowx" type="float">1645</pref>
 	<pref name="Unity.PlayMode.Editor.PlayModeConfigurationsWindowz" type="int">0</pref>
 	<pref name="UnityEditor.LayerVisibilityWindowx" type="float">910</pref>
@@ -321,7 +321,7 @@
 	<pref name="ProfilerModule.Unity.Entities.Editor.MemoryProfilerModule, Unity.Entities.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null.OrderIndex" type="int">16</pref>
 	<pref name="UnityEditor.PaneDragTaby" type="float">91</pref>
 	<pref name="UnityEditor.TooltipViewy" type="float">652</pref>
-	<pref name="RecentlyUsedScriptApp2" type="string">L2Jpbi9jb2Rl</pref>
+	<pref name="RecentlyUsedScriptApp2" type="string">L2hvbWUvbWF0aXMvSmV0YnJhaW5zQXBwcy9yaWRlci9iaW4vcmlkZXI=</pref>
 	<pref name="Profiler.MemoryProfilerModule.DSPGraphHorizontalLayout" type="int">0</pref>
 	<pref name="TerrainSelectedDetail" type="int">0</pref>
 	<pref name="UnityEditor.PaneDragTabw" type="float">1920</pref>
@@ -473,7 +473,7 @@
 	<pref name="MainView_safe_modex" type="float">0</pref>
 	<pref name="Unity.Multiplayer.PlayMode.Editor.LaunchingScenarioWindowy" type="float">328</pref>
 	<pref name="PaintHeight.TerrainBrushRotation" type="float">0</pref>
-	<pref name="RecentlyUsedScriptApp1" type="string">L3Vzci9iaW4vY29kZQ==</pref>
+	<pref name="RecentlyUsedScriptApp1" type="string">L2Jpbi9jb2Rl</pref>
 	<pref name="ColorViewMode" type="int">0</pref>
 	<pref name="HDRP:SceneViewCamera:Antialiasing" type="int">0</pref>
 	<pref name="UnityEngine.InputSystem.Editor.AdvancedDropdownWindowz" type="int">0</pref>
